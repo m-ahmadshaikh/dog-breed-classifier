@@ -13175,7 +13175,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13313,7 +13313,7 @@ There are 5 total dog images.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># returns &quot;True&quot; if face is detected in image stored at img_path</span>
@@ -13353,7 +13353,7 @@ There are 5 total dog images.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm</span>
@@ -13372,6 +13372,85 @@ There are 5 total dog images.
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### TODO: Test the performance of the dog_detector function</span>
+<span class="c1">### on the images in human_files_short and dog_files_short.</span>
+<span class="n">face_in_dog</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">face_in_human</span> <span class="o">=</span>  <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dog_files_short</span><span class="p">:</span>
+    <span class="n">face_in_dog</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face_detector</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">human_files_short</span><span class="p">:</span>
+    <span class="n">face_in_human</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face_detector</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">face_in_dog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">face_in_dog</span><span class="p">)</span>
+<span class="n">face_in_human</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">face_in_human</span><span class="p">)</span>
+<span class="n">indog_perc</span> <span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">face_in_dog</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">face_in_dog</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">inhuman_perc</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">face_in_human</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">face_in_human</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">indog_perc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inhuman_perc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>17.0
+98.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the given Code <br>
+The face is detected in 17% dogs of the 100 dogs <br>
+The face is detected in 98% human of the 100 human <br></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13382,7 +13461,7 @@ There are 5 total dog images.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### (Optional) </span>
@@ -13408,7 +13487,7 @@ There are 5 total dog images.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -13440,7 +13519,7 @@ There are 5 total dog images.
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Downloading: &#34;https://download.pytorch.org/models/vgg16-397923af.pth&#34; to /root/.torch/models/vgg16-397923af.pth
-100%|██████████| 553433881/553433881 [00:06&lt;00:00, 89844722.59it/s] 
+100%|██████████| 553433881/553433881 [00:05&lt;00:00, 95987198.54it/s] 
 </pre>
 </div>
 </div>
@@ -13505,6 +13584,19 @@ There are 5 total dog images.
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13558,8 +13650,8 @@ There are 5 total dog images.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> 
-100 % in dog_files_short are predicted dog
+<p><strong>Answer:</strong> <br>
+100 % in dog_files_short are predicted dog<br>
 0 % in human_files_short are predicted dog</p>
 
 </div>
@@ -13940,7 +14032,7 @@ There are 5 total dog images.
 <p><strong>Question 3:</strong> Describe your chosen procedure for preprocessing the data.</p>
 <ul>
 <li>How does your code resize the images (by cropping, stretching, etc)?  What size did you pick for the input tensor, and why?</li>
-<li>Did you decide to augment the dataset?  If so, how (through translations, flips, rotations, etc)?  If not, why not?</li>
+<li>Did you decide to augment the dataset?  If so, how (through translations, flips, rotations, etc)?  If not, why not?<br></li>
 </ul>
 
 </div>
@@ -13949,7 +14041,10 @@ There are 5 total dog images.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>:</p>
+<p><strong>Answer</strong>:<br>
+1.I have decided to normalize the image tensors that why the gradient would reach faster to the global minimum<br>
+2.I have used randomized rotation and randomized resized on the training data. That would give a randomness in the data that would prevent the overfitting and works good on test data.<br>
+3.On the valid and test data I didn't do the image augmentation but I have resized the image to 256 and center crop it to 224. The resizing choice was totally based on my gut feeling.</p>
 
 </div>
 </div>
@@ -14024,7 +14119,7 @@ There are 5 total dog images.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> At first I decided to implement it with three convoutional layers but the loss was decreasing at very small rate. So I implemented it with two convolutional layers</p>
+<p><strong>Answer:</strong><br> At first I decided to implement it with three convoutional layers but the loss was decreasing at very small rate. So I implemented it with two convolutional layers.<br> I have also checked it without the dropout normaliztion in that case the training loss was decreasing but validation loss wasn't that's why I have include this feature.</p>
 
 </div>
 </div>
@@ -14453,7 +14548,10 @@ Test Accuracy: 12% (106/836)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> <br>
+VGG-11 was first runner up in Winner (Localization) in ILSVRC 2014. I have read in the following <a href="https://medium.com/coinmonks/paper-review-of-vggnet-1st-runner-up-of-ilsvlc-2014-image-classification-d02355543a11">article</a>.<br>
+Other pretrained models like resnet and densenet are also very good. I considered VGG for this project. Because I wanted to test it. I have already tested resnet and desnsenet on other small projects.<br>
+The second reason was it uses small 3x3 filter that would reduce the number of parameter and with fewer parameters to be learnt, it is better for faster convergence, and reduced overfitting problem.</p>
 
 </div>
 </div>
@@ -14830,7 +14928,11 @@ Test Accuracy: 84% (706/836)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> (Three possible points for improvement)</p>
+<p><strong>Answer:</strong> (Three possible points for improvement)<br><br></p>
+<p>1.More images would definately increase the accuracy of the model.<br>
+2.By trying other pretrained model like resnet and denset would may provide better on this dataset.<br>
+3.Hyperparameter tuning like choosing different learning rates, weight initialization, dropouts, batch sizes and choose different optimizer could increase the accuracy.<br>
+4.More image augmentation techniques like flipping verticaly, and other techniques that would include randomness in the dataset would definately increase the accuracy!</p>
 
 </div>
 </div>
